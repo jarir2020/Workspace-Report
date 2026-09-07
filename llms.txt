@@ -1,0 +1,48 @@
+# Younic-Workspace-Report
+
+> A single-file PHP app for creating daily work plans and exporting them as
+> single-page PDFs. Plans are persisted as JSON; PDFs are rendered on demand
+> by headless Chrome.
+
+A work plan has: a date, a "Prepared by" name, an "Approved by" name, and a
+list of tasks. Each task has a title and a status (`pending` or `done`).
+Reports are exported as a one-page A4 PDF whose CSS scale factor is chosen
+based on the number of tasks so the entire report always fits on a single
+sheet.
+
+## Key files
+
+- [generate_plan.php](generate_plan.php) — the entire app: routing, form,
+  JSON storage, HTML report template, and headless-Chrome PDF generation.
+- [README.md](README.md) — how to run the app.
+- [LICENSE](LICENSE) — MIT.
+
+## Features
+
+- Create / save work plans (no accounts, no database — JSON files on disk).
+- Open an existing plan to update task status (Pending / Done).
+- Export a plan as a single-page PDF.
+- List, edit, and delete existing reports from the home page.
+- Strict one-page PDF output via a CSS `var(--scale)` that adapts to the
+  number of tasks.
+
+## Running
+
+```bash
+php -S 127.0.0.1:8000 generate_plan.php
+```
+
+Requires PHP 8.0+ and a headless Chrome / Chromium binary on `PATH`.
+
+## Endpoints (form actions, all `POST` to `generate_plan.php`)
+
+- `action=save` — create or overwrite a plan; expects `date`, `prepared_by`,
+  `approved_by`, and a `tasks[]` array.
+- `action=update` — update task statuses for an existing plan; expects `id`
+  and `status[index]=pending|done`.
+- `action=delete` — delete a plan and its cached PDF; expects `id`.
+
+## URL parameters
+
+- `?plan=<id>` — load a plan in the editor.
+- `?plan=<id>&markdown=1` — generate and download the plan as a PDF.

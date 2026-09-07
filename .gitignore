@@ -1,0 +1,18 @@
+# Runtime data — plans are user-specific and regenerated on first use
+plans/*.json
+plans/*_report.pdf
+
+# Stray PDFs that the app downloads to the project root
+workplan_*.pdf
+Workplan-*.pdf
+
+# Editor / OS noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*~
+
+# PHP
+*.log

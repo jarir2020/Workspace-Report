@@ -1,0 +1,77 @@
+# robots.txt for Younic-Workspace-Report
+#
+# The app is fully public, so all well-behaved crawlers (including AI
+# training and search crawlers) are allowed by default. The block below
+# is the explicit allowlist for the most common AI bots as a courtesy
+# to operators who choose to deny them globally.
+
+User-agent: *
+Allow: /
+
+# OpenAI
+User-agent: GPTBot
+Allow: /
+
+# OpenAI (user-triggered browsing)
+User-agent: OAI-SearchBot
+Allow: /
+
+# Anthropic
+User-agent: Claude-Web
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+
+# Google (search + AI training opt-in)
+User-agent: Googlebot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
+# Common Crawl (used by many AI training pipelines)
+User-agent: CCBot
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+# Apple
+User-agent: Applebot-Extended
+Allow: /
+
+# Meta
+User-agent: Meta-ExternalAgent
+Allow: /
+
+# Cohere
+User-agent: cohere-ai
+Allow: /
+User-agent: cohere-training-data-crawler
+Allow: /
+
+# Mistral
+User-agent: MistralAI-User
+Allow: /
+
+# ByteDance
+User-agent: Bytespider
+Allow: /
+
+# Amazon
+User-agent: Amazonbot
+Allow: /
+
+# Microsoft
+User-agent: MSNBot-Media
+Allow: /
+
+# Hugging Face
+User-agent: HF-AI-Crawler
+Allow: /
+
+# AI-specific discovery hint
+# llms.txt — see https://llmstxt.org
+Sitemap: /llms.txt

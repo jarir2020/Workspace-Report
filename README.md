@@ -1,4 +1,4 @@
-# Younic-Workspace-Report
+# Workspace-Report
 
 A small PHP app for creating, saving, and exporting **daily work plans** as
 single-page PDFs. Plans live as JSON files on disk; PDFs are rendered on demand
